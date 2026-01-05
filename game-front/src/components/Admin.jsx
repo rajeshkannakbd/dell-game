@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API = "https://dell-game-bac.onrender.com";
+const API = "https://dell-game-lingesh-server.onrender.com";
 
 export default function Admin() {
   const [users, setUsers] = useState([]);

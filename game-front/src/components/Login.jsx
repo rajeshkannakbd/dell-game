@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API = "https://dell-game-bac.onrender.com";
+const API = "https://dell-game-lingesh-server.onrender.com";
+
 
 export default function Login() {
   const [name, setName] = useState("");

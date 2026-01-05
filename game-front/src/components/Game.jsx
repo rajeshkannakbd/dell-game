@@ -28,7 +28,7 @@ export default function Game() {
     try {
       setLoading(true);
 
-      const res = await fetch("https://dell-game-bac.onrender.com/api/submit-score", {
+      const res = await fetch("http://localhost:5000/api/submit-score", {
         method: "POST",
         body: formData,
       });

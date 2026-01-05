@@ -2,15 +2,30 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors');
 const multer = require("multer");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
-app.use(cors({
-  origin: "https://dell-game-front.onrender.com", // replace with your frontend URL
-  methods: ["GET","POST","PUT","DELETE"],
-  credentials: true
-}));
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://dell-game-lingesh-server.onrender.com"
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  })
+);
 app.use(express.json());
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 /* ---------------- MongoDB ---------------- */
 mongoose
