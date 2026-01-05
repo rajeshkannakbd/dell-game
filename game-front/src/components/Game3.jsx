@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API = "http://localhost:5000"; // backend URL
+const API = "https://dell-game-lingesh-server.onrender.com"; // backend URL
 
 export default function Game3() {
   const [points, setPoints] = useState("");
